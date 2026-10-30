@@ -1,6 +1,6 @@
 import $ from '../externals/jquery.js';
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
+import { createApp } from 'vue';
+import { createI18n } from 'vue-i18n';
 import { i18nService } from '../service/i18nService';
 import { constants } from '../util/constants';
 import { util } from '../util/util';
@@ -141,11 +141,8 @@ MainVue.searchModalOpened = function() {
 };
 
 MainVue.init = function () {
-    Vue.use(VueI18n);
     return i18nService.getVueI18n().then((i18n) => {
-        app = new Vue({
-            i18n: i18n,
-            el: '#app',
+        const app = createApp({
             components: { NotificationBar, ProgressBarModal, SearchModal, MessageBox },
             data() {
                 return {
@@ -272,6 +269,8 @@ MainVue.init = function () {
                 }
             }
         });
+        app.use(i18n);
+        app.mount('#app');
         return Promise.resolve();
     });
 };
