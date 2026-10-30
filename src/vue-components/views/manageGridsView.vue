@@ -555,7 +555,7 @@
             });
             window.deleteImages = this.deleteImages;
         },
-        beforeDestroy() {
+        beforeUnmount() {
             $(document).off(constants.EVENT_DB_PULL_UPDATED, this.onPullUpdate);
             $.contextMenu('destroy');
         }

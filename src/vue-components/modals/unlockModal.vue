@@ -95,7 +95,7 @@
             this.keyHandler.startListening();
             this.resetTimeout(true);
         },
-        beforeDestroy() {
+        beforeUnmount() {
             this.keyHandler.destroy();
         }
     }

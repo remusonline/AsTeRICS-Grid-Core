@@ -203,7 +203,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#huffman-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

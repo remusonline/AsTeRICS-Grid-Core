@@ -124,7 +124,7 @@
         mounted() {
             helpService.setHelpLocation('03_appearance_layout', '#adding-elements-and-layout-options');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

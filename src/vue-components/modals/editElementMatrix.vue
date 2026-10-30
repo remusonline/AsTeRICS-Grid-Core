@@ -22,7 +22,7 @@
         },
         mounted() {
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

@@ -232,7 +232,7 @@
                 }
             })
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

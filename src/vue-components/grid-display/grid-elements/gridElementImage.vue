@@ -33,7 +33,7 @@ export default {
     },
     mounted() {
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.$refs.imgElement) {
             // Flush the URL to release the network stream and VRAM texture
             this.$refs.imgElement.src = '';

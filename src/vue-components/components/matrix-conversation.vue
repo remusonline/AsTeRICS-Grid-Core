@@ -179,7 +179,7 @@ export default {
         $(document).on(constants.EVENT_MATRIX_SET_ROOM, this.onRoomChangeEvent);
         $(document).on(constants.EVENT_MATRIX_SENDING_START, this.onSendingStart);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         matrixService.onMessage(null);
         $(document).off(constants.EVENT_MATRIX_SCROLL_UP, this.onScrollUpEvent);
         $(document).off(constants.EVENT_MATRIX_SCROLL_DOWN, this.onScrollDownEvent);

@@ -216,7 +216,7 @@
             this.initInternal();
             helpService.setHelpLocation('03_appearance_layout', '#edit-modal');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

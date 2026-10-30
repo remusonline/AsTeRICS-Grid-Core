@@ -25,7 +25,7 @@
         mounted() {
             this.gridElement.additionalProps[GridElement.PROP_YT_PREVENT_CLICK] = this.gridElement.additionalProps[GridElement.PROP_YT_PREVENT_CLICK] || false;
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

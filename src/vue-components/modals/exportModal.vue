@@ -198,7 +198,7 @@
                 }
             });
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

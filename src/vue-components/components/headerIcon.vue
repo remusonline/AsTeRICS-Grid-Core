@@ -42,7 +42,7 @@
                 this.tag = 'header';
             }
         },
-        beforeDestroy() {
+        beforeUnmount() {
             $(document).off(constants.EVENT_SIDEBAR_CLOSE, document, this.onCloseFn);
         }
     }

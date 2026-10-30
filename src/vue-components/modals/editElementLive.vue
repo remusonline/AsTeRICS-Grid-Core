@@ -240,7 +240,7 @@
             this.extractInfo = this.extractInfoBasedOnCurrent;
             this.recalcDtValues();
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

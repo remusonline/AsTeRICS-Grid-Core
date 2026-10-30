@@ -198,7 +198,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#sequential-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

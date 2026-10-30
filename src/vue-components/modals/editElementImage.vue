@@ -309,7 +309,7 @@
                 this.search(this.imageSearch);
             }
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

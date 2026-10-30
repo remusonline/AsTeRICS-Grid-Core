@@ -119,7 +119,7 @@
             thiz.searchOptions.lang = thiz.selectLanguages.map(e => e.code).includes(i18nService.getAppLang()) ? i18nService.getAppLang() : "";
             thiz.gridPreviews = await boardService.query("", thiz.searchOptions);
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

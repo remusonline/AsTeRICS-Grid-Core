@@ -178,7 +178,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#direction-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

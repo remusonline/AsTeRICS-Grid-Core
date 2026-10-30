@@ -61,7 +61,7 @@
             this.matrixRoom = this.matrixRooms[0];
             this.e2eeSupported = matrixService.isEncryptionEnabled();
         },
-        beforeDestroy() {
+        beforeUnmount() {
             matrixService.onMessage(null);
         }
     }

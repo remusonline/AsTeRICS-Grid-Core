@@ -489,7 +489,7 @@
             $(document).on(constants.EVENT_METADATA_UPDATED, this.metadataUpdated);
             $(document).on(constants.EVENT_GRID_RERENDER, this.rerenderGrid);
         },
-        beforeDestroy() {
+        beforeUnmount() {
             $(document).off(constants.EVENT_DB_PULL_UPDATED, this.onExternalUpdate);
             $(document).off(constants.EVENT_SIDEBAR_OPEN, this.onSidebarOpen);
             $(document).off(constants.EVENT_NAVIGATE_GRID_IN_VIEWMODE, this.onNavigateEvent);

@@ -73,7 +73,7 @@ export default {
             window.addEventListener('resize', this.resizeListener);
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         if (this.resizeObserver) {
             this.resizeObserver.disconnect();
         } else {
