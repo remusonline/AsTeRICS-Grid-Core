@@ -209,7 +209,7 @@ export default {
         this.globalGrid = JSON.parse(JSON.stringify(await dataService.getGlobalGrid()));
         this.originalGlobalGrid = JSON.parse(JSON.stringify(this.globalGrid));
     },
-    beforeDestroy() {
+    beforeUnmount() {
     }
 }
 </script>

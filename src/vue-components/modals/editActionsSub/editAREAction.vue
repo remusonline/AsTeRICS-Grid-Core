@@ -163,7 +163,7 @@
             }
             helpService.setHelpLocation('05_actions', '#asterics-action');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

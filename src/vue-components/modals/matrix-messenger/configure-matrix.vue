@@ -101,7 +101,7 @@
                     log.warn("matrix: unknown error at login");
             }
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

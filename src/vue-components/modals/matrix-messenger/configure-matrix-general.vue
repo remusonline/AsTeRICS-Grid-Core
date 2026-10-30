@@ -115,7 +115,7 @@
             this.metadata = await dataService.getMetadata();
             this.e2eeSupported = matrixService.isEncryptionEnabled();
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

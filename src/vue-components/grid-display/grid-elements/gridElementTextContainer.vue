@@ -136,7 +136,7 @@ export default {
             }, { deep: true });
         }
     },
-    beforeDestroy() {
+    beforeUnmount() {
         $(document).off(`${constants.EVENT_ELEM_TEXT_CHANGED}.${this.gridElement.id}`);
     }
 }

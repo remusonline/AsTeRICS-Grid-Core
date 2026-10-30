@@ -50,8 +50,10 @@ i18nService.getVueI18n = async function () {
     if (vueI18n) {
         return vueI18n;
     }
-    vueI18n = new VueI18n({
-        locale: i18nService.getAppLang(), // set locale
+    const { createI18n } = await import('vue-i18n');
+    vueI18n = createI18n({
+        legacy: true,
+        locale: i18nService.getAppLang(),
         fallbackLocale: fallbackLang,
         messages: {}
     });
@@ -120,7 +122,7 @@ i18nService.setAppLanguage = async function (lang, dontSave, force) {
     $('html').prop('lang', currentAppLang);
     await getPredefinedActionTranslations();
     return loadLanguage(currentAppLang).then(() => {
-        vueI18n.locale = currentAppLang;
+        vueI18n.global.locale = currentAppLang;
         allLanguages.sort((a, b) => a[currentAppLang].toLowerCase().localeCompare(b[currentAppLang].toLowerCase()));
         return Promise.resolve();
     });
@@ -178,7 +180,7 @@ i18nService.t = function (key, ...args) {
     if (!key) {
         return '';
     }
-    return vueI18n.t(key, i18nService.getAppLang(), args);
+    return vueI18n.global.t(key, ...args);
 };
 
 /**
@@ -187,7 +189,7 @@ i18nService.t = function (key, ...args) {
  * @return true, if translations exists
  */
 i18nService.te = function (key) {
-    return vueI18n.te(key, i18nService.getAppLang());
+    return vueI18n.global.te(key);
 }
 
 /**
@@ -213,7 +215,11 @@ i18nService.tFallback = function(...keys) {
  * @return {*}
  */
 i18nService.tl = function (key, args, lang) {
-    return vueI18n.t(key, lang, args);
+    const prev = vueI18n.global.locale;
+    vueI18n.global.locale = lang;
+    const result = vueI18n.global.t(key, args);
+    vueI18n.global.locale = prev;
+    return result;
 };
 
 /**
@@ -338,7 +344,7 @@ async function loadLanguage(useLang, secondTry) {
     try {
         let messages = await $.get(url);
         loadedLanguages.push(useLang);
-        vueI18n.setLocaleMessage(useLang, messages);
+        vueI18n.global.setLocaleMessage(useLang, messages);
     } catch (e) {
         if (!secondTry) {
             await loadLanguage(fallbackLang, true);

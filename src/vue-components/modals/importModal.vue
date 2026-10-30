@@ -166,7 +166,7 @@
         },
         mounted() {
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

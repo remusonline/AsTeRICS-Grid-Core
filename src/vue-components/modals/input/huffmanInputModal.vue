@@ -173,7 +173,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'huffInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_HUFF_INPUTS)));
+                this.inputConfig["huffInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_HUFF_INPUTS));
                 this.inputChanged();
             },
             initTest() {
@@ -203,7 +203,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#huffman-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

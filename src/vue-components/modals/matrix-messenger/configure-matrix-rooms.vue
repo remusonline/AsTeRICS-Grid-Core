@@ -184,7 +184,7 @@
             this.loggedInUser = await matrixService.getUsername();
             matrixService.onRoomChange(this.onRoomChange);
         },
-        beforeDestroy() {
+        beforeUnmount() {
             matrixService.onRoomChange(null);
         }
     }

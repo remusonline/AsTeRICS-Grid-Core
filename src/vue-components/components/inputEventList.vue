@@ -149,7 +149,6 @@
 </template>
 
 <script>
-    import Vue from 'vue';
     import {InputConfig} from "../../js/model/InputConfig";
     import {InputEventKey} from "../../js/model/InputEventKey";
     import {InputEventAudio} from "../../js/model/InputEventAudio";

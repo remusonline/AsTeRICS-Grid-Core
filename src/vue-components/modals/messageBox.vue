@@ -190,7 +190,7 @@
         },
         mounted() {
         },
-        beforeDestroy() {
+        beforeUnmount() {
             this.cleanup();
         }
     }

@@ -120,7 +120,7 @@
             });
             helpService.setHelpLocation('05_actions', '#edit-actions-modal');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.setHelpLocation('02_navigation', '#edit-view');
         }
     }

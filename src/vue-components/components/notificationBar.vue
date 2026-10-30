@@ -119,7 +119,7 @@
             notificationBar = this;
             $(document).on(constants.EVENT_NAVIGATE, this.checkClearOnNavigate);
         },
-        beforeDestroy() {
+        beforeUnmount() {
             $(document).off(constants.EVENT_NAVIGATE, this.checkClearOnNavigate);
         }
     }

@@ -148,7 +148,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'dirInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_DIR_INPUTS)));
+                this.inputConfig["dirInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_DIR_INPUTS));
                 this.inputChanged();
             },
             initTest() {
@@ -178,7 +178,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#direction-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

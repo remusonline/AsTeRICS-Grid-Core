@@ -166,8 +166,8 @@
                     return this.gridElement.collectMode;
                 },
                 set(selectedCollectOption) {
-                    this.$set(this.gridElement, 'dontCollect', undefined);
-                    this.$set(this.gridElement, 'collectMode', selectedCollectOption);
+                    this.gridElement["dontCollect"] = undefined;
+                    this.gridElement["collectMode"] = selectedCollectOption;
                 }
             },
             selectLanguages() {
@@ -232,7 +232,7 @@
                 }
             })
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

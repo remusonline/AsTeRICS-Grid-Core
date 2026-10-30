@@ -164,7 +164,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'seqInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_SEQ_INPUTS)));
+                this.inputConfig["seqInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_SEQ_INPUTS));
                 this.inputChanged();
             },
             initTest() {
@@ -198,7 +198,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#sequential-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

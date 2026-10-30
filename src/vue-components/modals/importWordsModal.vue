@@ -138,7 +138,7 @@
             this.originalPredictionary.loadDictionary(this.dictData.data, this.dictData.dictionaryKey);
             helpService.setHelpLocation('07_dictionaries', '#add-words');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
         }
     }

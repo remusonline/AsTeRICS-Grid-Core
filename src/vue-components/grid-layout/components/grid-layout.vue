@@ -270,7 +270,7 @@ export default {
         document.addEventListener('contextmenu', this.pointerEventListener);
         document.addEventListener('mousedown', this.pointerEventListener);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.destroyInteract();
         window.removeEventListener("resize", this.onResize);
         document.removeEventListener('click', this.pointerEventListener);

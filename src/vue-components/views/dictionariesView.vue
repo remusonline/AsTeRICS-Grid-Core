@@ -268,7 +268,7 @@
             let thiz = this;
             vueApp = thiz;
         },
-        beforeDestroy() {
+        beforeUnmount() {
             predictionService.init();
             $(document).off(constants.EVENT_DB_PULL_UPDATED, this.updatedHandler);
         }

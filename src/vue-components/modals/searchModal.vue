@@ -227,7 +227,7 @@
             }
             $('.grid-item-content').removeClass('highlight');
         },
-        beforeDestroy() {
+        beforeUnmount() {
         }
     }
 </script>

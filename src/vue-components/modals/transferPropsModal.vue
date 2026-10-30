@@ -74,9 +74,9 @@ export default {
     methods: {
         selectProp(transfer, propObject) {
             if (transfer) {
-                this.$set(this.transferObject, propObject.path, this.gridElement[propObject.path]);
+                this.transferObject["propObject.path"] = this.gridElement[propObject.path];
             } else {
-                this.$set(this.transferObject, propObject.path, constants.PROP_TRANSFER_DONT_CHANGE);
+                this.transferObject["propObject.path"] = constants.PROP_TRANSFER_DONT_CHANGE;
             }
         },
         save() {

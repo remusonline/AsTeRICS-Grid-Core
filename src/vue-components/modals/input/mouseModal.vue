@@ -168,7 +168,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#mousetouch-input');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();

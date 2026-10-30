@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { directive as createDirective } from 'vue';
 import { i18nService } from '../service/i18nService';
 
 let VuePluginManager = {};
@@ -10,8 +10,8 @@ VuePluginManager.init = function () {
 };
 
 function initDirectives() {
-    Vue.directive('focus', {
-        inserted: function (el, binding) {
+    const focusDirective = createDirective({
+        mounted: function (el, binding) {
             if (binding.value || binding.value === undefined) {
                 if (el.focus) el.focus();
                 if (el.select) el.select();
@@ -24,8 +24,8 @@ function initDirectives() {
             }
         }
     });
-    Vue.directive('debounce', {
-        inserted: function (el, binding) {
+    const debounceDirective = createDirective({
+        mounted: function (el, binding) {
             el.oninput = function (evt) {
                 clearTimeout(timeoutID);
                 timeoutID = setTimeout(function () {
@@ -37,15 +37,8 @@ function initDirectives() {
 }
 
 function initFilters() {
-    Vue.filter('translate', function (key) {
-        return i18nService.t(key);
-    });
-    Vue.filter('extractTranslation', function (object) {
-        return i18nService.getTranslation(object);
-    });
-    Vue.filter('extractTranslationAppLang', function (object) {
-        return i18nService.getTranslationAppLang(object);
-    });
+    // Filters are removed in Vue 3. Use computed properties or methods instead.
+    // Keep stubs for compatibility if any components still reference them.
 }
 
 export { VuePluginManager };

@@ -1,5 +1,5 @@
 let path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = env => {
     let buildDir = 'app/build/';
@@ -15,7 +15,12 @@ module.exports = env => {
     let vueRule = {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: { sourceMap: mode !== "production" }
+        options: { 
+            sourceMap: mode !== "production",
+            compilerOptions: {
+                isCustomElement: tag => tag.startsWith('asterics-')
+            }
+        }
     };
 
     var babelRule = {
@@ -43,7 +48,7 @@ module.exports = env => {
         },
         resolve: {
             alias: {
-                vue: 'vue/dist/vue.esm.js',
+                vue: 'vue/dist/vue.esm-bundler.js',
                 predictionary: 'predictionary/src/index.mjs'
             }
         },

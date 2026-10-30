@@ -174,7 +174,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'scanInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_SCAN_INPUTS)));
+                this.inputConfig["scanInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_SCAN_INPUTS));
                 this.inputChanged();
             },
             initTest() {
@@ -205,7 +205,7 @@
             });
             helpService.setHelpLocation('04_input_options', '#scanning');
         },
-        beforeDestroy() {
+        beforeUnmount() {
             helpService.revertToLastLocation();
             this.stopTest();
             inputEventHandler.resumeAll();
