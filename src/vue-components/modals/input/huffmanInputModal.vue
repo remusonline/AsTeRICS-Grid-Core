@@ -173,7 +173,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'huffInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_HUFF_INPUTS)));
+                this.inputConfig["huffInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_HUFF_INPUTS));
                 this.inputChanged();
             },
             initTest() {

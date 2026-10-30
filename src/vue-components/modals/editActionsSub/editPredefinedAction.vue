@@ -127,8 +127,8 @@ export default {
             }, 300, 'PREDEF_ACTIONS_TXT_CHG');
         },
         groupChanged() {
-            this.$set(this.action, "actionInfo", {});
-            this.$set(this.action, "customValues", {});
+            this.action["actionInfo"] = {};
+            this.action["customValues"] = {};
             this.updateCounter1++;
             this.updateCounter2++;
             this.updateCounter3++;
@@ -144,7 +144,7 @@ export default {
             });
         },
         actionInfoChanged() {
-            this.$set(this.action, "customValues", {});
+            this.action["customValues"] = {};
             this.updateCounter1++;
             this.$nextTick(() => {
                 this.$emit("change");

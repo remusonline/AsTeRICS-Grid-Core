@@ -223,13 +223,13 @@
             recalcDtValues(debounceMs = 0) {
                 util.debounce(async () => {
                     for (let format of GridElementLive.DT_FORMATS) {
-                        this.$set(this.currentDtValues, format, await liveElementService.getCurrentValue( {
+                        this.currentDtValues["format"] = await liveElementService.getCurrentValue( {
                             mode: GridElementLive.MODE_DATETIME,
                             dateTimeFormat: format,
                             dateTimeLocale: this.gridElement.dateTimeLocale,
                             dateTimeFormatCustom: this.gridElement.dateTimeFormatCustom,
                             dateTimeOffsetHours: this.gridElement.dateTimeOffsetHours
-                        }));
+                        });
                     }
                 }, debounceMs);
             }

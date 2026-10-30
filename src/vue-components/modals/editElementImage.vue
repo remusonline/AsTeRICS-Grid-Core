@@ -248,7 +248,7 @@
             },
             afterColorChange() {
                 this.$forceUpdate(); // get color change in search option working, if no searchText
-                this.$set(this.searchProvider, 'options', JSON.parse(JSON.stringify(this.searchProvider.options))); // trigger watch for color change, don't know why it's needed
+                this.searchProvider["options"] = JSON.parse(JSON.stringify(this.searchProvider.options)); // trigger watch for color change, don't know why it's needed
             },
             searchInput(debounceTime, event) {
                 let thiz = this;

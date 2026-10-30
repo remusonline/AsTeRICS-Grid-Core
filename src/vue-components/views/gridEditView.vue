@@ -173,7 +173,7 @@
                 for (let element of actionElements) {
                     for (let path of gridUtil.getAllPropTransferPaths()) {
                         if (this.propTransferObject[path] !== constants.PROP_TRANSFER_DONT_CHANGE) {
-                            this.$set(element, path, this.propTransferObject[path]);
+                            element["path"] = this.propTransferObject[path];
                         }
                     }
                 }

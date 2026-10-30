@@ -164,7 +164,7 @@
                 }
             },
             resetInput() {
-                this.$set(this.inputConfig, 'seqInputs', JSON.parse(JSON.stringify(InputConfig.DEFAULT_SEQ_INPUTS)));
+                this.inputConfig["seqInputs"] = JSON.parse(JSON.stringify(InputConfig.DEFAULT_SEQ_INPUTS));
                 this.inputChanged();
             },
             initTest() {
